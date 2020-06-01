@@ -1,0 +1,31 @@
+{
+      "FULL NAME": "Gulshan Patel",
+      "Address": "Purani bazar jhajha, jamui, (Bihar)",
+      "Email": "glshnptl@gmail.com",
+      "Phone": "7301306029",
+      "Objective": "I am a MCA student at national institute of technology surathkal, i am looking for an SDE intenship",
+      "Educational Detail": {
+            "Matric": "B L S A high school jhajha    Science    80.2%",
+            "Intermediate": "B L S A high school jhajha    Science    73.2%",
+            "Graduation": "R Lal college alinagar, Nalanda    B.Sc(Math)    69%"
+      },
+      "Internship": {
+            "Resume builder": "This priject take input as a json file file or by random input and create a json file , and convert them to a pdf file .",
+            "Smart Notepad": "This note book suggest word while typing on the basis of previous text"
+      },
+      "Area_of_Intrest": {
+            "0": "software development"
+      },
+      "Technical Skills": {
+            "language": "c++, JAVA, Django, Mysql, HTML",
+            "Operatng System ": "Linux"
+      },
+      "Academic Achievements": {
+            "0": "Scure 135 rank in NIMCET 2018",
+            "1": "Scecure 110 rank on geeksforgeeks"
+      },
+      "other Activities": {
+            "0": "Member of website team in Tech-fest Ignite 2019 (NITK)",
+            "1": "Member of webite team in Tech-fest Ignite 2018 (NITK)"
+      }
+}

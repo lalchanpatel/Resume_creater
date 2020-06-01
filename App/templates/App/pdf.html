@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <meta charset="UTF-8">
+    <title>pdf</title>
+    <style>
+* {
+  box-sizing: border-box;
+}
+
+.column {
+  float: left;
+  width: 20%;
+  padding: 5px;
+  background-color: aqua
+}
+
+/* Clearfix (clear floats) */
+.row1::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+</style>
+</head>
+<body>
+    <div class="row1">
+      <div class="column">
+          <img src="1st.png"  height="350"></br>
+          <input type="checkbox" >Atul.docx
+      </div>
+      <div class="column">
+          <img src="2nd.png" height="350"></br>
+          <input type="checkbox" >new.docx
+      </div>
+      <div class="column">
+          <img src="3rd.png"  height="350"></br>
+          <input type="checkbox" >Alok.docx
+      </div>
+    </div>
+    <div class="row1" id="datafield">
+        <div style="width: 50%; float: left">
+            Json File <input type="file">
+        </div>
+        <div id="make_json" style="width: 50%; float: left">
+            <h3>Enter Details</h3>
+        </div>
+        <div id="puthere" style="visibility: hidden;"> </div>
+
+    </div>
+    <div class="row1">
+        <div style="width: 50%; float: left; text-align: center">
+            <input type=submit value="submit">
+        </div>
+    </div>
+    
+</body>
+
+<script>
+
+function onlyOne(checkbox) {
+    var checkboxes = document.getElementsByName('tmplt')
+    checkboxes.forEach((item) => {
+        if (item !== checkbox) item.checked = false
+    })
+}
+
+$(document).ready(function(){
+    $(".make_json").on("click", function(){
+        console.log("yes i am");
+    $("#puthere").load("details.html");
+    $("#puthere").css("visibility", "visible");
+    $("#datafield").css("visibility", "hidden");
+  });
+});
+
+</script>
+
+
+</html>

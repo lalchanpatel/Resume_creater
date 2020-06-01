@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta charset="UTF-8">
+    <title>Home</title>
+
+    <style>
+* {
+  box-sizing: border-box;
+}
+
+.column {
+  float: left;
+  width: 20%;
+  padding: 10px;
+  margin-left: 10%;
+}
+.remove_field {
+ margin-left: 80%;
+ color: green;
+ text-decoration: None;
+}
+/* Clearfix (clear floats) */
+.row1::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+.xyz{
+    cursor: url(templat_image/1st.png), auto;
+}
+</style>
+</head>
+
+<body>
+    <form action="/build/" method="post" enctype="multipart/form-data">{% csrf_token %}
+    <div style="width:100%; height:auto;">
+    <div class="row1" style="margin-left:15%; background-color: #f2f2f2; width:70%; text-align: center; ">
+      <div class="column">
+          <a class="xyz" href="{% static 'templat_image/1st.png' %}"><img src="{% static 'templat_image/1st.png' %}" height="350"></a></br>
+          <input type="checkbox" name="tmplt" value="new.docx" onclick="onlyOne(this)"> new.docx
+      </div>
+      <div class="column">
+          <a href="{% static 'templat_image/2nd.png' %}"><img src="{% static 'templat_image/2nd.png' %}" height="350"></a></br>
+          <input type="checkbox" name="tmplt" value="atul.docx" onclick="onlyOne(this)"> Atul.docx
+      </div>
+      <div class="column">
+          <a href="{% static 'templat_image/3rd.png' %}"><img src="{% static 'templat_image/3rd.png' %}" height="350"></a></br>
+          <input type="checkbox" name="tmplt"  value="alok.docx" onclick="onlyOne(this)"> Alok.docx
+      </div>
+    </div>
+
+    <div class="row1" id="datafield" style="background-color: #f2f2f2;  margin-left:15%; width:70%; text-align: center; ">
+        <div style="width: 50%; float: left; margin-top: 2%; background-color: #f2f2f2;">
+            <font style="font-weight: bold;">Json File</font> <input type="file" name="abcfile"  >
+        </div>
+        <div id="make_json" style="width: 50%; float: left; background-color: #f2f2f2;">
+            <h3>Enter Details</h3>
+        </div>
+        <div id="puthere" style="text-align: left; visibility: hidden;"> </div>
+
+    </div>
+    <div class="row1" style="background-color: #f2f2f2;  margin-left:15%;  width:70%; text-align: center; ">
+        <div style="width: 50%; margin-top: 2%; float: left; text-align: center; background-color: #f2f2f2;">
+            <input  style="cursor:pointer; border-radius: 10px; font-size: 16px; padding:10px; background-color: green; color:white;outline: none;" type="submit" value="submit">
+        </div>
+        <div style="width: 50%; margin-top: 2%; float: left; background-color: #f2f2f2;">
+            <a style="border-radius: 10px;padding:10px; display: inline-block; background-color:red; color:white; text-decoration: none;" href="{% url 'logout' %}" > logout</a>
+        </div>
+    </div>
+    <div class="row1">
+        <div style="text-align: center;">
+            <a href="{{ obj.pdfFile.url }}" target="_blank"> {{ btn }}</a>
+        </div>
+    </div>
+    </div>
+    </form>
+
+
+</body>
+
+<script>
+
+function onlyOne(checkbox) {
+    var checkboxes = document.getElementsByName('tmplt')
+    checkboxes.forEach((item) => {
+        if (item !== checkbox) item.checked = false
+    })
+}
+
+$(document).ready(function(){
+    $("#make_json").on("click", function(){
+    $("#puthere").load("enter_detail");
+    $("#puthere").css("visibility", "visible");
+    $("#datafield").css("visibility", "hidden");
+  });
+});
+
+</script>
+</html>

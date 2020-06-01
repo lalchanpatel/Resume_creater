@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>login</title>
+    <style>
+        body{
+            background-color:grey;
+        }
+        .logindiv{
+            width: 300px;
+            height: 400px;
+            border-radius: 10px;
+            margin-left:auto;
+            margin-right: auto;
+            margin-top: 5%;
+            background-color: white;
+        }
+        .data{
+            width: 90%;
+            height: 25px;
+            padding-left: 10px;
+            margin-left:10px;
+            background-color: transparent;
+            outline: none;
+            border: none;
+            border-bottom: 2px solid green;
+            margin-top: 30px;
+            cursor: pointer;
+        }
+        .loginbtn {
+            padding: 10px 30px 10px 30px;
+            background-color: green;
+            margin-top: 30px;
+            color: white;
+            border-radius: 15px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-left: 30%;
+            margin-right: 30%;
+        }
+        h2{
+            margin-left:30%;
+            margin-right:30%;
+        }
+        error {
+            color: red;
+            margin-left: 10%;
+            margin-right: 10%;
+        }
+    </style>
+</head>
+<body>
+    <form action="/login/" method="post">{% csrf_token %}
+        <div class="logindiv">
+            <h2> SIGN IN</h2>
+            <input class="data" type="text" name="username" placeholder="username" required>
+            <input class="data" type="password" name="password" placeholder="*********" required>
+            <input class="loginbtn" type="submit" value="Login">
+
+            <font style="margin-left: 30px; ">Don't have account <a style="color:green; text-decoration:none;" href="{% url 'signup' %}"> signup here</a></font>
+            <error >{{ wrong }}</error>
+         </div>
+    </form>
+
+
+</body>
+</html>
